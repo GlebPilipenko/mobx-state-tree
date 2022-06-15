@@ -15,12 +15,21 @@ export const PostStore = types.model(StoreName.Post, {
   .actions(self => { // self it's analog THIS
     return {
       load: flow(function* () {
-        const response = yield PostApi.load(Path.Posts);
-        const {data, status} = response;
+       try {
+         const response = yield PostApi.load(Path.Posts);
+         const {data, status} = response;
 
-        if (status === StatusCode.Success) {
-          self.posts = data;
-        }
+         if (status === StatusCode.Success) {
+           self.posts = data;
+         }
+       } catch (e) {
+         console.log(e);
+       }
       })
     }
-  });
+  })
+  .views(self => ({
+    get findLastPostId() {
+      return self.posts.length > 0 && self.posts[self.posts.length - 1].id;
+    }
+  }));
