@@ -6,8 +6,10 @@ export const App = observer(() => {
   const {posts} = useStore();
 
   useEffect(() => {
-    posts.load();
-  }, [])
+    setTimeout(() => {
+      posts.load();
+    }, 2000)
+  }, [posts]);
 
   return (
     <div>
