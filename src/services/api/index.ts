@@ -4,6 +4,6 @@ import {PostType} from "types";
 
 export class PostApi {
   static async load(route: string) {
-    await API_INSTANCE.get<Promise<AxiosResponse<PostType[]>>>(`${route}`);
+    return await API_INSTANCE.get<Promise<AxiosResponse<PostType[]>>>(`${route}`);
   }
 }

@@ -6,7 +6,7 @@ import {rootStore} from 'store';
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 const store = rootStore.create({});
-const RootStoreContext = createContext(store);
+export const RootStoreContext = createContext(store);
 const Provider = RootStoreContext.Provider;
 
 root.render(
