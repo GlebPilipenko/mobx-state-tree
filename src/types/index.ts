@@ -1,1 +1,1 @@
-export type {PostType} from './PostType';
+export type { PostType } from './PostType';

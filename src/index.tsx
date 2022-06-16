@@ -1,19 +1,21 @@
-import React, {createContext} from 'react';
-import ReactDOM from 'react-dom/client';
+import React, { createContext } from 'react';
+
 import makeInspectable from 'mobx-devtools-mst';
-import {App} from 'App';
-import {rootStore} from 'store';
+import ReactDOM from 'react-dom/client';
+
+import { App } from 'App';
+import { rootStore } from 'store';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
-const store = rootStore.create({});
-export const RootStoreContext = createContext(store);
-const Provider = RootStoreContext.Provider;
+export const store = rootStore.create({});
+export const rootStoreContext = createContext(store);
+const { Provider } = rootStoreContext;
 
 makeInspectable(store);
 
 root.render(
   <Provider value={store}>
     <App />
-  </Provider>
+  </Provider>,
 );

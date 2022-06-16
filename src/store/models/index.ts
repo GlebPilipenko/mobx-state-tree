@@ -1,1 +1,1 @@
-export {PostModel, PostStore} from './posts'
+export { PostModel, PostStore } from './posts';

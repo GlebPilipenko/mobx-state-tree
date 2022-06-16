@@ -1,3 +1,7 @@
+const ResponseCode = {
+  Successes: 200,
+};
+
 export enum StatusCode {
-  Success = 200,
+  Success = ResponseCode.Successes,
 }

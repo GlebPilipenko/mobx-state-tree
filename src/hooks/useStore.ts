@@ -1,6 +1,8 @@
-import {RootStoreContext} from "index";
-import {useContext} from "react";
+import { useContext } from 'react';
 
-export const useStore = () => {
-  return useContext(RootStoreContext)
-}
+import { rootStoreContext } from 'index';
+import { RootStoreType } from 'store/types';
+
+export const useStore = (): RootStoreType => {
+  return useContext(rootStoreContext);
+};

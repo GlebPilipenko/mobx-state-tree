@@ -1,25 +1,30 @@
-import {useEffect} from "react";
-import {useStore} from "hooks";
-import {observer} from "mobx-react-lite";
+import React, { useEffect } from 'react';
+
+import { observer } from 'mobx-react-lite';
+
+import { useStore } from 'hooks';
 
 const DELAY = 2000;
 
 export const App = observer(() => {
-  const {posts} = useStore();
+  const {
+    posts,
+    posts: { getLastPostId },
+  } = useStore();
+
+  const validLastPostId = typeof getLastPostId === 'boolean' ? 0 : getLastPostId;
 
   useEffect(() => {
     setTimeout(() => {
       posts.load();
-    }, DELAY)
+    }, DELAY);
   }, [posts]);
 
- return (
+  return (
     <div>
       <h1>MobX state tree...</h1>
       {`Count - ${posts.posts.length}`}
-      <div>
-        {`Last id - ${posts.findLastPostId}`}
-      </div>
+      <div>{`Last id - ${validLastPostId}`}</div>
     </div>
   );
 });
