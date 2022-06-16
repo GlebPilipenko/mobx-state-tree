@@ -8,22 +8,21 @@ const DELAY = 2000;
 
 export const App = observer(() => {
   const {
-    posts,
-    posts: { getLastPostId },
+    postsState: { posts, load, getLastPostId },
   } = useStore();
 
   const validLastPostId = typeof getLastPostId === 'boolean' ? 0 : getLastPostId;
 
   useEffect(() => {
     setTimeout(() => {
-      posts.load();
+      load();
     }, DELAY);
-  }, [posts]);
+  }, [load]);
 
   return (
     <div>
       <h1>MobX state tree...</h1>
-      {`Count - ${posts.posts.length}`}
+      {`Count - ${posts.length}`}
       <div>{`Last id - ${validLastPostId}`}</div>
     </div>
   );
