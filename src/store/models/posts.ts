@@ -20,9 +20,6 @@ export const PostStore = types
       load: flow(function* () {
         try {
           const response = yield PostApi.load(Path.Posts);
-
-          console.log(response);
-
           const { data, status } = response;
 
           if (status === StatusCode.Success) {
