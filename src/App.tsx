@@ -8,22 +8,34 @@ const DELAY = 2000;
 
 export const App = observer(() => {
   const {
-    postsState: { posts, load, getLastPostId },
+    postsState: { posts, loadPosts, getLastPostId },
+    todosState: { todos, loadTodos, getLastTodoId },
   } = useStore();
 
-  const validLastPostId = typeof getLastPostId === 'boolean' ? 0 : getLastPostId;
+  const getLastId = (lastId: number | false): number => {
+    return typeof lastId === 'boolean' ? 0 : lastId;
+  };
 
   useEffect(() => {
     setTimeout(() => {
-      load();
+      loadPosts();
+      loadTodos();
     }, DELAY);
-  }, [load]);
+  }, [loadPosts, loadTodos]);
 
   return (
     <div>
       <h1>MobX state tree...</h1>
-      {`Count - ${posts.length}`}
-      <div>{`Last id - ${validLastPostId}`}</div>
+
+      <div style={{ marginBottom: 25 }}>
+        {`Count - ${posts.length}`}
+        <div>{`Last id - ${getLastId(getLastPostId)}`}</div>
+      </div>
+
+      <div>
+        {`Count - ${todos.length}`}
+        <div>{`Last id - ${getLastId(getLastTodoId)}`}</div>
+      </div>
     </div>
   );
 });

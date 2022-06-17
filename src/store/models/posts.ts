@@ -1,7 +1,7 @@
 import { flow, types } from 'mobx-state-tree';
 
 import { ModelName, Path, StatusCode, StoreName } from 'enums';
-import { PostApi } from 'services/api';
+import { PostApi } from 'services/api/Post';
 
 export const PostModel = types.model(ModelName.Post, {
   userId: types.number,
@@ -15,9 +15,8 @@ export const PostStore = types
     posts: types.array(PostModel),
   })
   .actions(self => {
-    // self it's analog THIS
     return {
-      load: flow(function* () {
+      loadPosts: flow(function* () {
         try {
           const response = yield PostApi.load(Path.Posts);
           const { data, status } = response;
