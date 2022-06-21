@@ -7,6 +7,8 @@ import { useStore } from 'hooks';
 const DELAY = 2000;
 
 export const App = observer(() => {
+  console.log('Add gh-pages');
+
   const {
     postsState: { posts, loadPosts, getLastPostId },
     todosState: { todos, loadTodos, getLastTodoId },
