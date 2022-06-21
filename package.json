@@ -2,7 +2,7 @@
   "name": "mobx-state-tree",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gitname.github.io/react-gh-pages",
+  "homepage": "https://GlebPilipenko.github.io/mobx-state-tree",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
