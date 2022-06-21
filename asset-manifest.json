@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/mobx-state-tree/static/js/main.522adf08.js",
+    "index.html": "/mobx-state-tree/index.html",
+    "main.522adf08.js.map": "/mobx-state-tree/static/js/main.522adf08.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.522adf08.js"
+  ]
+}
